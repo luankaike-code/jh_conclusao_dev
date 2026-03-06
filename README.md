@@ -35,7 +35,7 @@ A pasta logs funcionará como um diario. A organização dessa pasta será a seg
 ## Grupo
 - [Luan Mack](https://github.com/luankaike-code)
 - [Rafael Pelligrini](https://github.com/jefin282)
-- Daniel da Silva
+- [Daniel da Silva](https://github.com/Dani00097)
+- [Victoria Teixeira Paiva](https://github.com/Victoria-1914)
 - Matheus Delise
-- Victoria Teixeira Paiva
 - Joshua de Oliveira
