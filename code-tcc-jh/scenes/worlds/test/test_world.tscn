@@ -11,11 +11,11 @@ material_override = ExtResource("1_wc7aa")
 use_collision = true
 size = Vector3(8000, 1, 8000)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1359250364]
-transform = Transform3D(0.9620991, 0, -0.27270007, 0, 1, 0, 0.27270007, 0, 0.9620991, -10.16074, 6.285473, 12.88628)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1478895732]
 transform = Transform3D(1, 0, 0, 0, 0.36534795, 0.930871, 0, -0.930871, 0.36534795, 0, 19.393194, 50.541176)
 
 [node name="RaycastCar" parent="." unique_id=1540622167 instance=ExtResource("2_3rhmh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.6299286, 0)
+
+[node name="Camera3D" type="Camera3D" parent="RaycastCar" unique_id=1359250364]
+transform = Transform3D(0.96209913, 0, -0.2727001, 0, 1, 0, 0.2727001, 0, 0.96209913, -10.16074, 0.6555443, 12.88628)

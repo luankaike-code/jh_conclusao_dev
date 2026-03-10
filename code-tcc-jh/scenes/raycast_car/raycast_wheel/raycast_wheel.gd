@@ -38,6 +38,9 @@ func _turn(turn_dir: float, delta: float) -> void:
 	else:
 		rotation.y = move_toward(rotation.y, 0, turn_speed * delta)
 
+func _rotate_model(speed: float, delta: float) -> void:
+	model.rotate_x((-speed * delta) / wheel_model_radius)
+
 func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var delta := get_process_delta_time()
 	
@@ -84,3 +87,16 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var force_pos := car.to_local(contact)
 	car.apply_force(x_force, force_pos)
 	car.apply_force(friction_force, force_pos)
+	
+	var forward_dir := -global_basis.z
+	var speed := forward_dir.dot(car.linear_velocity)
+	
+	_rotate_model(speed, delta)
+
+	var middle_wheel := car.to_local(model.global_position)
+	
+	if car.motor_input && has_motor:
+		var acceleration := car.acceleration * car.motor_input
+		var vector_acc_force := acceleration * forward_dir
+
+		car.apply_force(vector_acc_force, middle_wheel)
