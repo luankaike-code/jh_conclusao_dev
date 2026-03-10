@@ -33,7 +33,7 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var ray_normal := ray.get_collision_normal()
 	var contact := ray.get_collision_point()
 	var suspension_len := global_position.distance_to(contact)
-	model.position.y = suspension_len
+	model.position.y = -suspension_len + wheel_model_radius
 	
 	var offset :=  rest_distance - suspension_len
 	var suspension_force := offset * suspension_strength
