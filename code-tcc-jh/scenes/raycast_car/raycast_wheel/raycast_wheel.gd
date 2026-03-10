@@ -10,6 +10,8 @@ class_name RaycastWheel
 @export var turn_speed: float = 2.0
 @export var max_turn_degrees: float = 25.0
 
+@export var traction: float = 0.05
+
 @export var has_motor: bool = false
 
 @onready var ray: RayCast3D = $RayCast3D
@@ -65,3 +67,20 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var up_force_pos := car.to_local(model.global_position)
 	
 	car.apply_force(up_force, up_force_pos)
+	
+	var right_dir := global_transform.basis.x.normalized()
+	var wheel_vel := _get_point_velocity_using_raycast_car(car, model.global_position)
+	var turn_vel := right_dir.dot(wheel_vel)
+	var gravity: float = -car.get_gravity().y
+	var apply_mass_in_wheel := (car.mass*gravity)/car.wheels.size()
+	
+	var x_traction := 1
+	var x_force := -global_basis.x * x_traction * turn_vel * apply_mass_in_wheel
+	
+	var back_dir := global_basis.z
+	var friction_vel := -back_dir.dot(wheel_vel)
+	var friction_force := car.global_basis.z * friction_vel * traction * apply_mass_in_wheel
+	
+	var force_pos := car.to_local(contact)
+	car.apply_force(x_force, force_pos)
+	car.apply_force(friction_force, force_pos)
