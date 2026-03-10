@@ -31,6 +31,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.677, -1.221544, -2.852)
 
 [node name="RaycastWheelBL" parent="." unique_id=37950975 instance=ExtResource("2_scyro")]
 transform = Transform3D(0.99999875, -0.0015678873, -0.00016444211, 0.0015677918, 0.99999857, -0.00056761777, 0.00016534884, 0.0005673543, 0.9999998, -1.6772771, -1.221823, 2.6555295)
+has_motor = true
 
 [node name="RaycastWheelBR" parent="." unique_id=246883373 instance=ExtResource("2_scyro")]
 transform = Transform3D(0.99999875, -0.0015678873, -0.00016444211, 0.0015677918, 0.99999857, -0.00056761777, 0.00016534884, 0.0005673543, 0.9999998, 1.677, -1.221544, 2.656)
+has_motor = true

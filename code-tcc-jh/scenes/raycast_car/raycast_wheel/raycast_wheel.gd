@@ -7,6 +7,11 @@ class_name RaycastWheel
 @export var rest_distance:  float = 0.5
 @export var extend_suspension_len:  float = 0.0
 
+@export var turn_speed: float = 2.0
+@export var max_turn_degrees: float = 25.0
+
+@export var has_motor: bool = false
+
 @onready var ray: RayCast3D = $RayCast3D
 @onready var model: MeshInstance3D = $Model
 
@@ -14,21 +19,35 @@ var wheel_model_radius: float
 
 func _ready() -> void:
 	wheel_model_radius = model.get_aabb().size.y/2
-	_update_suspension_len()
 
-func _update_suspension_len():
-	var delta := get_process_delta_time()
+func _update_suspension_len(delta: float):
 	var suspension_len = -(rest_distance + wheel_model_radius + extend_suspension_len)
 	ray.target_position.y = move_toward(ray.target_position.y, suspension_len, delta)
 
 func _get_point_velocity_using_raycast_car(car: RaycastCar, point: Vector3) -> Vector3:
 	return car.linear_velocity + car.angular_velocity.cross(car.to_local(point))
 
+func _turn(turn_dir: float, delta: float) -> void:
+	if turn_dir:
+		turn_dir *= turn_speed
+		var max_turn = deg_to_rad(max_turn_degrees)
+		var turn_rot := clampf(rotation.y + turn_dir * delta, -max_turn, max_turn)
+		rotation.y = turn_rot
+	else:
+		rotation.y = move_toward(rotation.y, 0, turn_speed * delta)
+
 func apply_forces_in_raycast_car(car: RaycastCar) -> void:
+	var delta := get_process_delta_time()
+	
+	_update_suspension_len(delta)
+	var turn_dir := Input.get_axis("game_turn_right", "game_turn_left")
+	
+	if !has_motor:
+		_turn(turn_dir, delta)
+	
 	if !ray.is_colliding():
 		return
-	
-	_update_suspension_len()
+
 	var up_dir := global_transform.basis.y.normalized()
 	var ray_normal := ray.get_collision_normal()
 	var contact := ray.get_collision_point()
