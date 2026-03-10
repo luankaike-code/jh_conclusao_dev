@@ -54,7 +54,7 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 		return
 	
 	## APPLY SUSPENSION FORCE
-	
+	var middle_wheel := car.to_local(model.global_position)
 	var up_dir := global_transform.basis.y.normalized()
 	var ray_normal := ray.get_collision_normal()
 	var contact := ray.get_collision_point()
@@ -69,9 +69,8 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var damping_force := damping_strength * contact_rel_velocity
 	
 	var up_force := (suspension_force - damping_force) * ray_normal
-	var up_force_pos := car.to_local(model.global_position)
 	
-	car.apply_force(up_force, up_force_pos)
+	car.apply_force(up_force, middle_wheel)
 	
 	## APPLY TURN FORCE
 	
@@ -84,22 +83,19 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var x_traction := 1
 	var left_car_dir := -global_basis.x.normalized()
 	var x_force := left_car_dir * x_traction * turn_vel * apply_mass_in_wheel
-	
 	var back_dir := global_basis.z.normalized()
 	var friction_vel := -back_dir.dot(wheel_vel)
 	var friction_force := car.global_basis.z * friction_vel * traction * apply_mass_in_wheel
-	
-	var force_pos := car.to_local(contact)
-	car.apply_force(x_force, force_pos)
-	car.apply_force(friction_force, force_pos)
+
+	var x_force_pos := car.to_local(contact)
+	car.apply_force(x_force, x_force_pos)
+	car.apply_force(friction_force, x_force_pos)
 	
 	## APPLY ACCELERATION
 	var forward_dir := -global_basis.z
 	var speed := forward_dir.dot(car.linear_velocity)
 	
 	_rotate_model(speed, delta)
-
-	var middle_wheel := car.to_local(model.global_position)
 	
 	if car.motor_input && has_motor:
 		var acceleration := car.acceleration * car.motor_input
