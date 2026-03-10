@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://fl6gqmnsc2hv"]
 
-[ext_resource type="ArrayMesh" uid="uid://cfvl82tp5dm6g" path="res://assets/meshs/wheel1.tres" id="1_m23je"]
+[ext_resource type="Script" uid="uid://duxfq4irr2iko" path="res://scenes/raycast_car/raycast_wheel/raycast_wheel.gd" id="1_d5if0"]
+[ext_resource type="ArrayMesh" uid="uid://cprx8ic6c2vnb" path="res://assets/meshs/wheel1.tres" id="1_m23je"]
 
 [node name="RaycastWheel" type="Node3D" unique_id=37950975]
+script = ExtResource("1_d5if0")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1952132022]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=510317468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26472324, 0)
 mesh = ExtResource("1_m23je")
