@@ -11,6 +11,7 @@ albedo_color = Color(0.35656494, 0.3565649, 0.3565649, 1)
 points = PackedVector3Array(0.5661, 2.4687648, -1.61972, -2.0370998, -0.98897487, -6.4970074, -2.0353901, -0.859937, -6.6190147, 1.0719874, -1.0661509, -6.6568522, -2.1032507, -1.0661509, 1.1466236, 1.0719874, -1.0661509, 1.1466236, -1.9642761, 2.234621, -3.5442696, 1.0719874, 1.0504155, -6.6568522, -2.1032507, 1.0504155, 1.1466236, 1.0719874, 1.0504155, 1.1466236, -2.1032507, 1.0504155, -6.6568522, 0.9330127, 2.234621, -3.5442696, -1.6032, 2.4782858, -1.6129253, -1.6032, 2.4782858, -3.1825047, -2.0370998, -0.48127267, -6.8774366, 1, -0.09804716, -6.861874, 0.5661, 2.4687648, -3.1804683, 0.95815986, 2.2597666, -1.2249995, -1.9894232, 2.2597666, -1.2249995, -2.0370998, -0.48127267, 1.2362659, 1, -0.09804716, 1.2207035, -2.0370035, -0.10139565, -6.87718, 1, -0.47641104, -6.861874, -2.0370998, -0.10145178, 1.2362659, 1, -0.47641104, 1.2207035)
 
 [node name="RaycastCar" type="RigidBody3D" unique_id=1540622167 node_paths=PackedStringArray("wheels")]
+mass = 50.0
 script = ExtResource("1_46vcx")
 wheels = [NodePath("RaycastWheelBL"), NodePath("RaycastWheelBR"), NodePath("RaycastWheelFL"), NodePath("RaycastWheelFR")]
 
@@ -24,15 +25,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41994333, 0, 2.6719337)
 shape = SubResource("ConvexPolygonShape3D_lsq2b")
 
 [node name="RaycastWheelFL" parent="." unique_id=2125478287 instance=ExtResource("2_scyro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.677, -1.221544, -2.852)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.677, -0.99801254, -2.852)
+suspension_strength = 5000.0
+damping_strength = 50.0
 
 [node name="RaycastWheelFR" parent="." unique_id=1939493024 instance=ExtResource("2_scyro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.677, -1.221544, -2.852)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.677, -0.99801254, -2.852)
+suspension_strength = 5000.0
+damping_strength = 50.0
 
 [node name="RaycastWheelBL" parent="." unique_id=37950975 instance=ExtResource("2_scyro")]
-transform = Transform3D(0.99999875, -0.0015678873, -0.00016444211, 0.0015677918, 0.99999857, -0.00056761777, 0.00016534884, 0.0005673543, 0.9999998, -1.6772771, -1.221823, 2.6555295)
+transform = Transform3D(0.99999875, -0.0015678873, -0.00016444211, 0.0015677918, 0.99999857, -0.00056761777, 0.00016534884, 0.0005673543, 0.9999998, -1.6772771, -0.9982915, 2.6555295)
+suspension_strength = 5000.0
+damping_strength = 50.0
 has_motor = true
 
 [node name="RaycastWheelBR" parent="." unique_id=246883373 instance=ExtResource("2_scyro")]
-transform = Transform3D(0.99999875, -0.0015678873, -0.00016444211, 0.0015677918, 0.99999857, -0.00056761777, 0.00016534884, 0.0005673543, 0.9999998, 1.677, -1.221544, 2.656)
+transform = Transform3D(0.99999875, -0.0015678873, -0.00016444211, 0.0015677918, 0.99999857, -0.00056761777, 0.00016534884, 0.0005673543, 0.9999998, 1.677, -0.99801254, 2.656)
+suspension_strength = 5000.0
+damping_strength = 50.0
 has_motor = true

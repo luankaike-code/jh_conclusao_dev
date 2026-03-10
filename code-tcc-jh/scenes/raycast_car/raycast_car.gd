@@ -3,7 +3,7 @@ class_name RaycastCar
 
 @export var wheels: Array[RaycastWheel]
 
-@export var acceleration := 100.0
+@export var acceleration := 800.0
 @export var deceleration := 100.0
 @export var motor_input: int
 
