@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://dhrvq381488f3"]
 
 [ext_resource type="Material" uid="uid://bm7ahbfh6uxjy" path="res://assets/materials/test.tres" id="1_wc7aa"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bkiuw"]
-size = Vector3(8, 8, 8)
-
-[sub_resource type="BoxMesh" id="BoxMesh_3rhmh"]
-size = Vector3(8, 8, 8)
+[ext_resource type="PackedScene" uid="uid://c11cau3bdgqax" path="res://scenes/raycast_car/raycast_car.tscn" id="2_3rhmh"]
 
 [node name="TestWorld" type="Node3D" unique_id=1775684704]
 
@@ -17,17 +12,10 @@ use_collision = true
 size = Vector3(8000, 1, 8000)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1359250364]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.752754, 37.333332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.285473, 12.88628)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1478895732]
 transform = Transform3D(1, 0, 0, 0, 0.36534795, 0.930871, 0, -0.930871, 0.36534795, 0, 19.393194, 50.541176)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1765611128]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.309553, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=689040518]
-shape = SubResource("BoxShape3D_bkiuw")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=60765882]
-mesh = SubResource("BoxMesh_3rhmh")
-surface_material_override/0 = ExtResource("1_wc7aa")
+[node name="RaycastCar" parent="." unique_id=1540622167 instance=ExtResource("2_3rhmh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.917343, 0)
