@@ -8,12 +8,12 @@ class_name RaycastWheel
 @export var extend_suspension_len:  float = 0.0
 
 @onready var ray: RayCast3D = $RayCast3D
-@onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
+@onready var model: MeshInstance3D = $Model
 
 var wheel_model_radius: float
 
 func _ready() -> void:
-	wheel_model_radius = mesh_instance_3d.get_aabb().size.y/2
+	wheel_model_radius = model.get_aabb().size.y/2
 	_update_suspension_len()
 
 func _update_suspension_len():
@@ -33,7 +33,7 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var ray_normal := ray.get_collision_normal()
 	var contact := ray.get_collision_point()
 	var suspension_len := global_position.distance_to(contact)
-	mesh_instance_3d.position.y = suspension_len
+	model.position.y = suspension_len
 	
 	var offset :=  rest_distance - suspension_len
 	var suspension_force := offset * suspension_strength
@@ -43,6 +43,6 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var damping_force := damping_strength * contact_rel_velocity
 	
 	var up_force := (suspension_force - damping_force) * ray_normal
-	var up_force_pos := car.to_local(mesh_instance_3d.global_position)
+	var up_force_pos := car.to_local(model.global_position)
 	
 	car.apply_force(up_force, up_force_pos)
