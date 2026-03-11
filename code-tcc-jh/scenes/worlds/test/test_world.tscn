@@ -13,7 +13,7 @@ size = Vector3(20, 10, 20)
 
 [node name="TestWorld" type="Node3D" unique_id=1775684704]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1898427611]
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1898427611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.566, -0.5, 0)
 material_override = ExtResource("1_wc7aa")
 use_collision = true
@@ -28,19 +28,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 36.158)
 [node name="Camera3D" type="Camera3D" parent="RaycastCar" unique_id=1359250364]
 transform = Transform3D(0.96209913, 0, -0.2727001, 0, 1, 0, 0.2727001, 0, 0.96209913, -10.16074, 9.48762, 34.42354)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=520287358]
+[node name="Props" type="Node3D" parent="." unique_id=2078269668]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1750649237]
+[node name="Ramp" type="StaticBody3D" parent="Props" unique_id=520287358]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Ramp" unique_id=1750649237]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 5, -35.355)
 shape = SubResource("ConvexPolygonShape3D_3rhmh")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=1570364520]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Ramp/CollisionShape3D" unique_id=1570364520]
+material_override = ExtResource("1_wc7aa")
 mesh = SubResource("PrismMesh_pfcdp")
 
-[node name="SpeedBumpsCollection" type="Node3D" parent="." unique_id=1982555271]
+[node name="SpeedBumpsCollection" type="Node3D" parent="Props" unique_id=1982555271]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.308304, 0, 0)
 
-[node name="SpeedBumps" type="Node3D" parent="SpeedBumpsCollection" unique_id=1197502993]
+[node name="SpeedBumps" type="Node3D" parent="Props/SpeedBumpsCollection" unique_id=1197502993]
 script = ExtResource("3_pfcdp")
 speed_bump_count = 30
 spacing = Vector3(0, 0, -3)
@@ -48,10 +51,47 @@ speed_bump_height = 20.0
 speed_bump_radius = 1.0
 metadata/_custom_type_script = "uid://cthekpdp3wmjb"
 
-[node name="SpeedBumps2" type="Node3D" parent="SpeedBumpsCollection" unique_id=829042241]
+[node name="SpeedBumps2" type="Node3D" parent="Props/SpeedBumpsCollection" unique_id=829042241]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.925224, 0, 0)
 script = ExtResource("3_pfcdp")
 speed_bump_count = 30
 spacing = Vector3(0, 0, -3)
 speed_bump_height = 20.0
 metadata/_custom_type_script = "uid://cthekpdp3wmjb"
+
+[node name="Pillars" type="Node3D" parent="Props" unique_id=620156333]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Props/Pillars" unique_id=607323310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.4308, 25, 0)
+material_override = ExtResource("1_wc7aa")
+use_collision = true
+radius = 30.0
+height = 50.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Props/Pillars" unique_id=2113238502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.111267, 25, 124.6111)
+material_override = ExtResource("1_wc7aa")
+use_collision = true
+radius = 15.0
+height = 50.0
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Props/Pillars" unique_id=43287787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103.45131, 25, 103.18974)
+material_override = ExtResource("1_wc7aa")
+use_collision = true
+radius = 5.0
+height = 50.0
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Props/Pillars" unique_id=1741255481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.05911, 25, 130.89986)
+material_override = ExtResource("1_wc7aa")
+use_collision = true
+radius = 5.0
+height = 50.0
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Props/Pillars" unique_id=166454342]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.0033, 25, 122.550934)
+material_override = ExtResource("1_wc7aa")
+use_collision = true
+radius = 5.0
+height = 50.0
