@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c11cau3bdgqax"]
 
 [ext_resource type="Script" uid="uid://c51lsova73q38" path="res://scenes/raycast_car/raycast_car.gd" id="1_46vcx"]
+[ext_resource type="PhysicsMaterial" uid="uid://bitpfi2ldh8wt" path="res://data/physic_material/arcade_car.tres" id="1_akiqn"]
 [ext_resource type="ArrayMesh" uid="uid://hvsdj6xo402k" path="res://assets/meshs/car1.tres" id="1_lsq2b"]
 [ext_resource type="PackedScene" uid="uid://fl6gqmnsc2hv" path="res://scenes/raycast_car/raycast_wheel/raycast_wheel.tscn" id="2_scyro"]
 
@@ -12,6 +13,7 @@ points = PackedVector3Array(-2.0371037, -1, -6.499807, -2.0371037, -0.42638445, 
 
 [node name="RaycastCar" type="RigidBody3D" unique_id=1540622167 node_paths=PackedStringArray("wheels")]
 mass = 25.0
+physics_material_override = ExtResource("1_akiqn")
 script = ExtResource("1_46vcx")
 wheels = [NodePath("RaycastWheelBL"), NodePath("RaycastWheelBR"), NodePath("RaycastWheelFL"), NodePath("RaycastWheelFR")]
 
