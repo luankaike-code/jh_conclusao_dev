@@ -21,13 +21,14 @@ var wheel_model_radius: float
 
 func _ready() -> void:
 	wheel_model_radius = model.get_aabb().size.y/2
+	ray.add_exception(get_parent())
 
 func _update_suspension_len(delta: float):
 	var suspension_len = -(rest_distance + wheel_model_radius + extend_suspension_len)
 	ray.target_position.y = move_toward(ray.target_position.y, suspension_len, delta)
 
 func _get_point_velocity_using_raycast_car(car: RaycastCar, point: Vector3) -> Vector3:
-	return car.linear_velocity + car.angular_velocity.cross(car.to_local(point))
+	return car.linear_velocity + car.angular_velocity.cross(point - car.global_position)
 
 func _turn(turn_dir: float, delta: float) -> void:
 	if turn_dir:
@@ -54,7 +55,7 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 		return
 	
 	## APPLY SUSPENSION FORCE
-	var middle_wheel := car.to_local(model.global_position)
+	var middle_wheel := (model.global_position - Vector3(0, wheel_model_radius, 0)) - car.global_position
 	var up_dir := global_transform.basis.y.normalized()
 	var ray_normal := ray.get_collision_normal()
 	var contact := ray.get_collision_point()
@@ -69,7 +70,7 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var damping_force := damping_strength * contact_rel_velocity
 	
 	var up_force := (suspension_force - damping_force) * ray_normal
-	
+	print(up_force)
 	car.apply_force(up_force, middle_wheel)
 	
 	## APPLY TURN FORCE
@@ -87,7 +88,7 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var friction_vel := -back_dir.dot(wheel_vel)
 	var friction_force := car.global_basis.z * friction_vel * traction * apply_mass_in_wheel
 
-	var x_force_pos := car.to_local(contact)
+	var x_force_pos := contact - car.global_position
 	car.apply_force(x_force, x_force_pos)
 	car.apply_force(friction_force, x_force_pos)
 	
