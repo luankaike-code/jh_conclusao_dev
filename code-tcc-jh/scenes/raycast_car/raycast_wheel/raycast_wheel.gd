@@ -15,6 +15,8 @@ class_name RaycastWheel
 @export var has_motor: bool = false
 @export var is_lock: bool = false
 
+@export var grip_curve: Curve = preload("res://data/curves/grip_curve.tres")
+
 @onready var ray: RayCast3D = $RayCast3D
 @onready var model: MeshInstance3D = $Model
 
@@ -81,10 +83,14 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var gravity: float = -car.get_gravity().y
 	var apply_mass_in_wheel := (car.mass*gravity)/car.wheels.size()
 	
-	var x_traction := 0.1 if is_lock else 0.7
 	var left_car_dir := -global_basis.x.normalized()
-	var x_force := left_car_dir * x_traction * turn_vel * apply_mass_in_wheel
 	var back_dir := global_basis.z.normalized()
+	
+	var traction_ratio := absf(turn_vel/wheel_vel.length())
+	var x_traction := 0.1 if is_lock else grip_curve.sample_baked(traction_ratio)
+	
+	var x_force := left_car_dir * x_traction * turn_vel * apply_mass_in_wheel
+	
 	var friction_vel := -back_dir.dot(wheel_vel)
 	var friction_force := car.global_basis.z * friction_vel * traction * apply_mass_in_wheel
 
