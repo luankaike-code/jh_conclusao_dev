@@ -45,7 +45,7 @@ func _turn(turn_dir: float, delta: float) -> void:
 func _rotate_model(speed: float, delta: float) -> void:
 	model.rotate_x((-speed * delta) / wheel_model_radius)
 
-func apply_forces_in_raycast_car(car: RaycastCar) -> void:
+func apply_forces_in_raycast_car(car: RaycastCar) -> bool:
 	var delta := get_process_delta_time()
 	
 	_update_suspension_len(delta)
@@ -55,7 +55,7 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 		_turn(turn_dir, delta)
 	
 	if !ray.is_colliding():
-		return
+		return false
 	
 	## APPLY SUSPENSION FORCE
 	var middle_wheel := (model.global_position - Vector3(0, wheel_model_radius, 0)) - car.global_position
@@ -101,7 +101,7 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	## APPLY ACCELERATION
 	
 	if is_lock:
-		return
+		return true
 	
 	var forward_dir := -global_basis.z
 	var speed := forward_dir.dot(car.linear_velocity)
@@ -116,3 +116,5 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 		var vector_acc_force := acceleration * forward_dir
 
 		car.apply_force(vector_acc_force, middle_wheel)
+	
+	return true
