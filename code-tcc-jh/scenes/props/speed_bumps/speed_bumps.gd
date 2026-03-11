@@ -27,7 +27,7 @@ class_name SpeedBumps
 		speed_bump_radius = new
 		_update_speed_bumps()
 
-@export var material: Material = preload("res://assets/materials/test.tres") : 
+@export var material: Material = preload("uid://bm7ahbfh6uxjy") : 
 	set(new):
 		material = new
 		_update_speed_bumps()

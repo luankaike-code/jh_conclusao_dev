@@ -7,7 +7,7 @@ class_name RaycastCar
 
 @export var acceleration: float = 800.0
 @export var deceleration: float = 100.0
-@export var acceleration_curve: Curve = preload("res://data/curves/acceleration_curve.tres")
+@export var acceleration_curve: Curve = preload("uid://vs02kc8u2wwm")
 
 var hand_brake: bool = false
 var motor_input: int

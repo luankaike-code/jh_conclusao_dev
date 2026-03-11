@@ -15,7 +15,7 @@ class_name RaycastWheel
 @export var has_motor: bool = false
 @export var is_lock: bool = false
 
-@export var grip_curve: Curve = preload("res://data/curves/grip_curve.tres")
+@export var grip_curve: Curve = preload("uid://dc2qxgo4xvm6j")
 
 @onready var ray: RayCast3D = $RayCast3D
 @onready var model: MeshInstance3D = $Model
