@@ -95,3 +95,17 @@ material_override = ExtResource("1_wc7aa")
 use_collision = true
 radius = 5.0
 height = 50.0
+
+[node name="Cars" type="Node3D" parent="Props" unique_id=2027388378]
+
+[node name="RaycastCar2" parent="Props/Cars" unique_id=790876231 instance=ExtResource("2_3rhmh")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.28746, 8.407782, 0)
+has_motor = false
+
+[node name="RaycastCar3" parent="Props/Cars" unique_id=591001713 instance=ExtResource("2_3rhmh")]
+transform = Transform3D(-0.9947672, 0, 0.10216757, 0, 1, 0, -0.10216757, 0, -0.9947672, -27.28746, 8.407782, 31.66356)
+has_motor = false
+
+[node name="RaycastCar4" parent="Props/Cars" unique_id=300167076 instance=ExtResource("2_3rhmh")]
+transform = Transform3D(-0.9947672, 0, 0.10216757, 0, 1, 0, -0.10216757, 0, -0.9947672, 26.470928, 8.407782, 31.66356)
+has_motor = false

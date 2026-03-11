@@ -9,6 +9,8 @@ class_name RaycastCar
 @export var deceleration: float = 100.0
 @export var acceleration_curve: Curve = preload("uid://vs02kc8u2wwm")
 
+@export var has_motor: bool = true
+
 var hand_brake: bool = false
 var motor_input: int
 
@@ -37,6 +39,8 @@ func _input_pressed_or_released(action: StringName, pressed: Variant, released: 
 
 @warning_ignore("unused_parameter")
 func _unhandled_input(event: InputEvent) -> void:
-	motor_input = _input_pressed_or_released("game_acceleration", 1.0, 0, motor_input)
-	motor_input = _input_pressed_or_released("game_deceleration", -1.0, 0, motor_input)
+	if has_motor:
+		motor_input = _input_pressed_or_released("game_acceleration", 1.0, 0, motor_input)
+		motor_input = _input_pressed_or_released("game_deceleration", -1.0, 0, motor_input)
+		
 	hand_brake = _input_pressed_or_released("game_hand_brake", true, false, hand_brake)
