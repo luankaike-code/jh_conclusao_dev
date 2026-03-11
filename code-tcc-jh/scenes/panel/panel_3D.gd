@@ -53,7 +53,12 @@ func _on_event_input_area(_camera: Camera3D, event: InputEvent, event_position: 
 	event.position = mouse_pos_2d
 	if event is InputEventMouse:
 		event.global_position = mouse_pos_2d
-	
+		
+	if event is InputEventMouseMotion || event is InputEventScreenDrag:
+		event.relative = mouse_pos_2d - last_mouse_pos_2d
+		event.velocity = event.relative / (now_time - last_event_time)
+		
+			
 	sub_viewport.push_input(event)
 	
 	
