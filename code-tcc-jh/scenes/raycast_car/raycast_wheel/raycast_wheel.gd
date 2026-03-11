@@ -13,6 +13,7 @@ class_name RaycastWheel
 @export var traction: float = 0.05
 
 @export var has_motor: bool = false
+@export var is_lock: bool = false
 
 @onready var ray: RayCast3D = $RayCast3D
 @onready var model: MeshInstance3D = $Model
@@ -80,7 +81,7 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var gravity: float = -car.get_gravity().y
 	var apply_mass_in_wheel := (car.mass*gravity)/car.wheels.size()
 	
-	var x_traction := 1
+	var x_traction := 0.1 if is_lock else 0.7
 	var left_car_dir := -global_basis.x.normalized()
 	var x_force := left_car_dir * x_traction * turn_vel * apply_mass_in_wheel
 	var back_dir := global_basis.z.normalized()
@@ -92,6 +93,10 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	car.apply_force(friction_force, x_force_pos)
 	
 	## APPLY ACCELERATION
+	
+	if is_lock:
+		return
+	
 	var forward_dir := -global_basis.z
 	var speed := forward_dir.dot(car.linear_velocity)
 	
