@@ -98,7 +98,10 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	_rotate_model(speed, delta)
 	
 	if car.motor_input && has_motor:
-		var acceleration := car.acceleration * car.motor_input
+		var speed_ration := speed / car.max_speed
+		var acceleration_ration := car.acceleration_curve.sample(speed_ration)
+		var current_acceleration := car.acceleration * acceleration_ration
+		var acceleration := current_acceleration * car.motor_input
 		var vector_acc_force := acceleration * forward_dir
 
 		car.apply_force(vector_acc_force, middle_wheel)

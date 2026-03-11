@@ -3,8 +3,12 @@ class_name RaycastCar
 
 @export var wheels: Array[RaycastWheel]
 
+@export var max_speed: float = 50.0
+
 @export var acceleration := 800.0
 @export var deceleration := 100.0
+@export var acceleration_curve := preload("res://data/curves/acceleration_curve.tres")
+
 @export var motor_input: int
 
 @warning_ignore("unused_parameter")
