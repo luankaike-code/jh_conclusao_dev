@@ -25,21 +25,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4687009, 0, 2.6719337)
 shape = SubResource("ConvexPolygonShape3D_46vcx")
 
 [node name="RaycastWheelFL" parent="." unique_id=2125478287 instance=ExtResource("2_scyro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.677, -0.99801254, -2.852)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4101379, -0.6983373, -2.7183325)
 suspension_strength = 10000.0
 damping_strength = 50.0
 rest_distance = 0.7
 extend_suspension_len = 0.3
 
 [node name="RaycastWheelFR" parent="." unique_id=1939493024 instance=ExtResource("2_scyro")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.677, -0.99801254, -2.852)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41, -0.6983248, -2.718)
 suspension_strength = 10000.0
 damping_strength = 50.0
 rest_distance = 0.7
 extend_suspension_len = 0.3
 
 [node name="RaycastWheelBL" parent="." unique_id=37950975 instance=ExtResource("2_scyro")]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -1.6772771, -0.9982915, 2.6555295)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -1.41, -0.6983248, 2.656)
 suspension_strength = 10000.0
 damping_strength = 50.0
 rest_distance = 0.7
@@ -47,7 +47,7 @@ extend_suspension_len = 0.3
 has_motor = true
 
 [node name="RaycastWheelBR" parent="." unique_id=246883373 instance=ExtResource("2_scyro")]
-transform = Transform3D(0.99999875, -0.0015678873, -0.00016444211, 0.0015677918, 0.99999857, -0.00056761777, 0.00016534884, 0.0005673543, 0.9999998, 1.677, -0.99801254, 2.656)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 1.41, -0.6983248, 2.656)
 suspension_strength = 10000.0
 damping_strength = 50.0
 rest_distance = 0.7

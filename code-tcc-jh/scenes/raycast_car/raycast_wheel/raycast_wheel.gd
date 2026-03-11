@@ -70,7 +70,6 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> void:
 	var damping_force := damping_strength * contact_rel_velocity
 	
 	var up_force := (suspension_force - damping_force) * ray_normal
-	print(up_force)
 	car.apply_force(up_force, middle_wheel)
 	
 	## APPLY TURN FORCE

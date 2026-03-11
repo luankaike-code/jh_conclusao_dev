@@ -17,6 +17,7 @@ func _input_pressed_or_released(action: StringName, pressed: Variant, released: 
 		return pressed
 	elif Input.is_action_just_released(action):
 		return released
+	
 	return default
 
 @warning_ignore("unused_parameter")
