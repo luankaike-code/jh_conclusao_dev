@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://qicd1wjtuu73"]
+
+[ext_resource type="PackedScene" uid="uid://ip2cxqd7m45r" path="res://scenes/panel/panel_3D.tscn" id="1_uf6hp"]
+
+[node name="Menu" type="Node3D" unique_id=2143209686]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1595469179]
+use_collision = true
+size = Vector3(60, 1, 60)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1763192113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8868942, 0)
+
+[node name="Panel3D" parent="." unique_id=1740493187 instance=ExtResource("1_uf6hp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9010274, -2.038383)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=581082533]
+transform = Transform3D(1, 0, 0, 0, 0.9487603, 0.3159968, 0, -0.3159968, 0.9487603, 0, 1.9093556, 0)

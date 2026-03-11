@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ip2cxqd7m45r"]
+
+[ext_resource type="Script" uid="uid://blt7peolrj03a" path="res://scenes/panel/panel_3D.gd" id="1_4mtw1"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0bfxb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8xnly"]
+size = Vector3(1, 1, 0.01)
+
+[node name="Panel3D" type="Node3D" unique_id=1740493187]
+script = ExtResource("1_4mtw1")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=55702973]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=666521323]
+mesh = SubResource("QuadMesh_0bfxb")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D" unique_id=132982611]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D" unique_id=83043551]
+shape = SubResource("BoxShape3D_8xnly")
