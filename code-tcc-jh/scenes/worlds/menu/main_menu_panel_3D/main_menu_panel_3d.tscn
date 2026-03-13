@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dye3lcbir7jnj"]
+
+[ext_resource type="PackedScene" uid="uid://ip2cxqd7m45r" path="res://scenes/panel_3D/panel_3D.tscn" id="1_x3vf3"]
+[ext_resource type="Script" uid="uid://dcst2is14wd6" path="res://scenes/worlds/menu/main_menu_panel_3D/main_menu_panel_3d.gd" id="2_6ap2k"]
+[ext_resource type="PackedScene" uid="uid://2hpj1477ys5w" path="res://scenes/guis/menu/menu_gui.tscn" id="3_5ehjw"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_511iv"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7nlp"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_511iv")
+
+[node name="main_menu_panel_3D" unique_id=1740493187 instance=ExtResource("1_x3vf3")]
+script = ExtResource("2_6ap2k")
+
+[node name="MenuGui" parent="SubViewport" parent_id_path=PackedInt32Array(55702973) index="0" unique_id=425219255 instance=ExtResource("3_5ehjw")]
+
+[node name="MeshInstance3D" parent="." index="1" unique_id=666521323]
+surface_material_override/0 = SubResource("StandardMaterial3D_w7nlp")

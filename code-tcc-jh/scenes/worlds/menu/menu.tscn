@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://qicd1wjtuu73"]
 
-[ext_resource type="PackedScene" uid="uid://ip2cxqd7m45r" path="res://scenes/panel/panel_3D.tscn" id="1_uf6hp"]
-[ext_resource type="PackedScene" uid="uid://2hpj1477ys5w" path="res://scenes/guis/menu/menu_gui.tscn" id="2_xs0qu"]
+[ext_resource type="PackedScene" uid="uid://dye3lcbir7jnj" path="res://scenes/worlds/menu/main_menu_panel_3D/main_menu_panel_3d.tscn" id="1_uf6hp"]
 
 [node name="Menu" type="Node3D" unique_id=2143209686]
 
@@ -12,11 +11,8 @@ size = Vector3(60, 1, 60)
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1763192113]
 transform = Transform3D(0.6100207, 0, 0.79238546, 0, 1, 0, -0.79238546, 0, 0.6100207, 0.30085778, 1.8868942, -0.4668607)
 
-[node name="Panel3D" parent="." unique_id=1740493187 instance=ExtResource("1_uf6hp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9010274, -2.038383)
-viewport_size = Vector2(1024, 1024)
-mesh_size = Vector2(2, 2)
-default_viewport_child = ExtResource("2_xs0qu")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=581082533]
 transform = Transform3D(1, 0, 0, 0, 0.9487603, 0.3159968, 0, -0.3159968, 0.9487603, 0, 1.9093556, 0)
+
+[node name="main_menu_panel_3D" parent="." unique_id=1740493187 instance=ExtResource("1_uf6hp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09359664, 1.9337369, -1.2761633)

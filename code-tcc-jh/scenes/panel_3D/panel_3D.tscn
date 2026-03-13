@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://ip2cxqd7m45r"]
 
-[ext_resource type="Script" uid="uid://blt7peolrj03a" path="res://scenes/panel/panel_3D.gd" id="1_4mtw1"]
+[ext_resource type="Script" uid="uid://blt7peolrj03a" path="res://scenes/panel_3D/panel_3D.gd" id="1_4mtw1"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_0bfxb"]
-size = Vector2(2, 2)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4mtw1"]
 viewport_path = NodePath("SubViewport")
@@ -15,7 +14,7 @@ shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_4mtw1")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8xnly"]
-size = Vector3(2, 2, 0.01)
+size = Vector3(1, 1, 0.01)
 
 [node name="Panel3D" type="Node3D" unique_id=1740493187]
 script = ExtResource("1_4mtw1")

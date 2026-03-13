@@ -12,11 +12,6 @@ class_name Panel3D
 		mesh_size = new
 		_update_mesh_size()
 
-@export var default_viewport_child: PackedScene :
-	set(new):
-		default_viewport_child = new
-		set_viewport_content(new)
-
 var is_mouse_inside: bool
 var last_event_pos_2d: Vector2 
 var last_event_time: float = -1
@@ -34,9 +29,6 @@ func _ready() -> void:
 	
 	_update_viewport_size()
 	_update_mesh_size()
-	
-	if default_viewport_child:
-		set_viewport_content(default_viewport_child)
 
 func _update_viewport_size():
 	if viewport:
