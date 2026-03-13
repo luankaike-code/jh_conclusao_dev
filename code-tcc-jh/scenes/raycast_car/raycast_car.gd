@@ -21,8 +21,7 @@ func _physics_process(delta: float) -> void:
 		wheel.is_lock = hand_brake
 		if wheel.apply_forces_in_raycast_car(self):
 			is_ground_collision = true
-	
-	print(is_ground_collision)
+
 	if is_ground_collision:
 		center_of_mass = Vector3.ZERO
 	else:

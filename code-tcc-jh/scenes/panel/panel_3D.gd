@@ -19,16 +19,11 @@ func _on_mouse_entered_area() -> void:
 
 func _on_mouse_exited_area() -> void:
 	is_mouse_inside = false
-
-func _process(delta: float) -> void:
-	if is_mouse_inside:
-		print("mouse_is_inside")
 	
 func _unhandled_input(event: InputEvent) -> void:
 	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]:
 		if is_instance_of(event, mouse_event): # if event is a mouse event
 			return
-	print(event)
 	sub_viewport.push_input(event)
 
 func _on_event_input_area(_camera: Camera3D, event: InputEvent, event_position: Vector3, _normal: Vector3, _shape_idx: int):
