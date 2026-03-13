@@ -63,6 +63,7 @@ func _on_event_input_area(_camera: Camera3D, event: InputEvent, event_position: 
 		
 		# event_pos_2d.d = Range(-0.5, 0.5)
 		event_pos_2d += Vector2.ONE / 2
+		event_pos_2d.y = 1.0 - event_pos_2d.y
 		# event_pos_2d.d = Range(0, 1)
 		
 		event_pos_2d *= Vector2(viewport.size)
