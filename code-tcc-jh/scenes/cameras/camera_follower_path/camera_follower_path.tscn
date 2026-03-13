@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dngjieskxwlff"]
+
+[ext_resource type="Script" uid="uid://m687hgc4nw4j" path="res://scenes/cameras/camera_follower_path/camera_follower_path.gd" id="1_yhahu"]
+[ext_resource type="Script" uid="uid://cuxp4hya7ig5e" path="res://scripts/state_machine/state_machine.gd" id="2_aspkh"]
+[ext_resource type="Script" uid="uid://cw20bwrtxugyh" path="res://scripts/state_machine/state.gd" id="3_fbvti"]
+[ext_resource type="Script" uid="uid://by5y4f68616s3" path="res://scenes/cameras/camera_follower_path/states/following.gd" id="4_fbvti"]
+
+[node name="CameraFollowerPath" type="Camera3D" unique_id=1643112527]
+script = ExtResource("1_yhahu")
+
+[node name="StateMachine" type="Node" parent="." unique_id=2092297890 node_paths=PackedStringArray("default_state")]
+script = ExtResource("2_aspkh")
+default_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://cuxp4hya7ig5e"
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=403333591]
+script = ExtResource("3_fbvti")
+metadata/_custom_type_script = "uid://cw20bwrtxugyh"
+
+[node name="Following" type="Node" parent="StateMachine" unique_id=492506013]
+script = ExtResource("4_fbvti")
+metadata/_custom_type_script = "uid://cw20bwrtxugyh"

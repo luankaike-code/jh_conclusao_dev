@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://w32erms4bofu"]
+
+[ext_resource type="Script" uid="uid://c5cq6lxql5olv" path="res://scenes/cameras/camera_car/camera_car.gd" id="1_8gu4s"]
+
+[node name="CameraCar" type="Node3D" unique_id=1388248187]
+script = ExtResource("1_8gu4s")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1803046920]
+transform = Transform3D(0.92180234, 0.17192486, -0.3474512, 0, 0.89627755, 0.4434936, 0.38766032, -0.40881342, 0.8261907, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=197963377]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)

@@ -45,10 +45,11 @@ func _on_mouse_entered_area() -> void:
 func _on_mouse_exited_area() -> void:
 	is_mouse_inside = false
 	
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:	
 	for mouse_event in [InputEventMouseButton, InputEventMouseMotion, InputEventScreenDrag, InputEventScreenTouch]:
 		if is_instance_of(event, mouse_event): # if event is a mouse event
 			return
+	
 	viewport.push_input(event)
 
 func _on_event_input_area(_camera: Camera3D, event: InputEvent, event_position: Vector3, _normal: Vector3, _shape_idx: int):
@@ -94,5 +95,3 @@ func set_viewport_content(packed_scene: PackedScene) -> CanvasItem:
 		
 	viewport.add_child(scene)
 	return scene
-
-	

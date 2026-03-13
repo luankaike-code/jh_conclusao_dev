@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://bm7ahbfh6uxjy" path="res://assets/materials/test.tres" id="1_wc7aa"]
 [ext_resource type="PackedScene" uid="uid://c11cau3bdgqax" path="res://scenes/raycast_car/raycast_car.tscn" id="2_3rhmh"]
+[ext_resource type="PackedScene" uid="uid://w32erms4bofu" path="res://scenes/cameras/camera_car/camera_car.tscn" id="3_jfhp8"]
 [ext_resource type="Script" uid="uid://cthekpdp3wmjb" path="res://scenes/props/speed_bumps/speed_bumps.gd" id="3_pfcdp"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3rhmh"]
@@ -25,8 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 0.36534795, 0.930871, 0, -0.930871, 0.365347
 [node name="RaycastCar" parent="." unique_id=1540622167 instance=ExtResource("2_3rhmh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 36.158)
 
-[node name="Camera3D" type="Camera3D" parent="RaycastCar" unique_id=1359250364]
-transform = Transform3D(0.96209913, 0, -0.2727001, 0, 1, 0, 0.2727001, 0, 0.96209913, -10.16074, 9.48762, 34.42354)
+[node name="CameraCar" parent="RaycastCar" unique_id=1388248187 instance=ExtResource("3_jfhp8")]
 
 [node name="Props" type="Node3D" parent="." unique_id=2078269668]
 
