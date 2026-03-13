@@ -12,6 +12,11 @@ class_name Panel3D
 		mesh_size = new
 		_update_mesh_size()
 
+@export var default_viewport_child: PackedScene :
+	set(new):
+		default_viewport_child = new
+		set_viewport_content(new)
+
 var is_mouse_inside: bool
 var last_event_pos_2d: Vector2 
 var last_event_time: float = -1
@@ -29,6 +34,9 @@ func _ready() -> void:
 	
 	_update_viewport_size()
 	_update_mesh_size()
+	
+	if default_viewport_child:
+		set_viewport_content(default_viewport_child)
 
 func _update_viewport_size():
 	if sub_viewport:
@@ -82,7 +90,16 @@ func _on_event_input_area(_camera: Camera3D, event: InputEvent, event_position: 
 	
 	sub_viewport.push_input(event)
 	
+func set_viewport_content(packed_scene: PackedScene) -> CanvasItem:
+	if !sub_viewport:
+		return
 	
+	var scene: CanvasItem = packed_scene.instantiate()
 	
-	
+	for sub_viewport_child in sub_viewport.get_children():
+		sub_viewport_child.queue_free()
+		
+	sub_viewport.add_child(scene)
+	return scene
+
 	
