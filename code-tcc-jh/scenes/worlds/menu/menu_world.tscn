@@ -1,20 +1,60 @@
 [gd_scene format=3 uid="uid://qicd1wjtuu73"]
 
-[ext_resource type="PackedScene" uid="uid://dye3lcbir7jnj" path="res://scenes/worlds/menu/main_menu_panel_3D/main_menu_panel_3d.tscn" id="1_uf6hp"]
-[ext_resource type="Script" uid="uid://kgspxrxjq6ql" path="res://scenes/worlds/menu/menu_world.gd" id="1_xs0qu"]
+[ext_resource type="Script" uid="uid://kgspxrxjq6ql" path="res://scenes/worlds/menu/menu_world.gd" id="1_r53we"]
+[ext_resource type="PackedScene" uid="uid://dye3lcbir7jnj" path="res://scenes/worlds/menu/main_menu_panel_3D/main_menu_panel_3d.tscn" id="2_usvhj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r53we"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usvhj"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_r53we"]
+_data = {
+"points": PackedVector3Array(-0.0017128885, 0, 0.10448748, 0.0017128885, 0, -0.10448748, -0.0051680068, -2.9802322e-06, 0.010078847, 0.19105232, 0.010333061, 0.84464645, -0.19105232, -0.010333061, -0.84464645, 1.2379329, -0.08270919, -1.6189101, 0, 0, 0, 0, 0, 0, 0.9106015, -0.13741219, -2.9803722),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
 
 [node name="Menu" type="Node3D" unique_id=2143209686]
-script = ExtResource("1_xs0qu")
+script = ExtResource("1_r53we")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1595469179]
 use_collision = true
 size = Vector3(60, 1, 60)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1763192113]
-transform = Transform3D(0.6100207, 0, 0.79238546, 0, 1, 0, -0.79238546, 0, 0.6100207, 0.30085778, 1.8868942, -0.4668607)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 1.961, -0.467)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=581082533]
 transform = Transform3D(1, 0, 0, 0, 0.9487603, 0.3159968, 0, -0.3159968, 0.9487603, 0, 1.9093556, 0)
 
-[node name="main_menu_panel_3D" parent="." unique_id=1740493187 instance=ExtResource("1_uf6hp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09359664, 1.9337369, -1.2761633)
+[node name="scenario" type="Node3D" parent="." unique_id=1637257786]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="scenario" unique_id=1170659972]
+transform = Transform3D(0.976296, 0, 0.21643962, 0, 1, 0, -0.21643962, 0, 0.976296, -0.23498577, 2.0815113, -1.8351513)
+size = Vector3(2.1709595, 2.1098633, 1.1542969)
+material = SubResource("StandardMaterial3D_r53we")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="scenario" unique_id=170543545]
+transform = Transform3D(0.7626683, 0, 0.6467898, 0, 1, 0, -0.6467898, 0, 0.7626683, 0.68778974, 2.0815113, -4.6491876)
+size = Vector3(2.1709595, 2.1098633, 1.1542969)
+material = SubResource("StandardMaterial3D_usvhj")
+
+[node name="menus" type="Node3D" parent="." unique_id=1393133641]
+
+[node name="main_menu_panel_3D" parent="menus" unique_id=1740493187 instance=ExtResource("2_usvhj")]
+transform = Transform3D(0.9761636, 0, 0.21703595, 0, 1, 0, -0.21703595, 0, 0.9761636, -0.035536826, 1.8555869, -1.2761633)
+
+[node name="main_menu_panel_3D3" parent="menus" unique_id=712528916 instance=ExtResource("2_usvhj")]
+transform = Transform3D(-0.9999999, 0, 8.742276e-08, 0, 1, 0, -8.742276e-08, 0, -0.9999999, 0, 1.856, 2.456)
+
+[node name="main_menu_panel_3D2" parent="menus" unique_id=335475122 instance=ExtResource("2_usvhj")]
+transform = Transform3D(0.7629279, 0, 0.64648354, 0, 1, 0, -0.64648354, 0, 0.7629279, 0.8221974, 1.8555869, -4.0034523)
+
+[node name="paths" type="Node3D" parent="." unique_id=1881546881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.068198085, 1.8655916, 0)
+
+[node name="MenuConfiguration" type="Path3D" parent="paths" unique_id=1810808666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.066265196, 0.09412813, -0.46499807)
+curve = SubResource("Curve3D_r53we")
