@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://2hpj1477ys5w"]
 
+[ext_resource type="Script" uid="uid://c6i7018h8dbnu" path="res://scenes/guis/menu/menu_gui.gd" id="1_lyi1q"]
+
 [node name="MenuGui" type="Control" unique_id=425219255]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lyi1q")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1629228639]
 layout_mode = 1
@@ -23,14 +26,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=617851868]
+[node name="StartBtn" type="Button" parent="VBoxContainer" unique_id=617851868]
 layout_mode = 2
 text = "start"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=993077051]
+[node name="ConfigurationBtn" type="Button" parent="VBoxContainer" unique_id=993077051]
 layout_mode = 2
 text = "Configurations"
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1955229757]
+[node name="CreditsBtn" type="Button" parent="VBoxContainer" unique_id=1955229757]
 layout_mode = 2
 text = "Credits"
