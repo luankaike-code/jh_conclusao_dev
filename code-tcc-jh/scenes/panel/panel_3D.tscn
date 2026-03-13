@@ -11,6 +11,7 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6lxeo"]
 resource_local_to_scene = true
 transparency = 1
+shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_4mtw1")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8xnly"]
@@ -20,6 +21,7 @@ size = Vector3(2, 2, 0.01)
 script = ExtResource("1_4mtw1")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=55702973]
+transparent_bg = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=666521323]
 mesh = SubResource("QuadMesh_0bfxb")
