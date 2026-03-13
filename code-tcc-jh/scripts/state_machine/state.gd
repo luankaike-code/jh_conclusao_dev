@@ -4,8 +4,7 @@ class_name State
 @warning_ignore("unused_signal")
 signal change_state(state: State)
 
-@warning_ignore("unused_parameter")
-func handle_ready(host) -> void:
+func handle_ready(_host) -> void:
 	return
 
 func enter():
@@ -14,14 +13,11 @@ func enter():
 func exit():
 	pass
 
-@warning_ignore("unused_parameter")
-func handle_process(delta: float) -> void:
+func handle_process(_delta: float) -> void:
 	pass
 
-@warning_ignore("unused_parameter")
-func handle_physics_process(delta: float) -> void:
+func handle_physics_process(_delta: float) -> void:
 	pass
 
-@warning_ignore("unused_parameter")
-func handle_unhandled_input(event: InputEvent) -> void:
+func handle_unhandled_input(_event: InputEvent) -> void:
 	pass
