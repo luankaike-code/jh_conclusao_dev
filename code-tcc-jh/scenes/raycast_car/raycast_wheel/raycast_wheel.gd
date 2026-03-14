@@ -14,6 +14,7 @@ class_name RaycastWheel
 
 @export var has_motor: bool = false
 @export var is_lock: bool = false
+@export var is_turn: bool = false
 
 @export var grip_curve: Curve = preload("uid://dc2qxgo4xvm6j")
 
@@ -51,7 +52,7 @@ func apply_forces_in_raycast_car(car: RaycastCar) -> bool:
 	_update_suspension_len(delta)
 	var turn_dir := Input.get_axis("game_turn_right", "game_turn_left")
 	
-	if !has_motor:
+	if is_turn:
 		_turn(turn_dir, delta)
 	
 	if !ray.is_colliding():

@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 		center_of_mass = Vector3.ZERO
 	else:
 		center_of_mass_mode = RigidBody3D.CENTER_OF_MASS_MODE_CUSTOM
-		center_of_mass = Vector3.DOWN
+		#center_of_mass = (Vector3.DOWN+Vector3.BACK)/2
 
 func _input_pressed_or_released(action: StringName, pressed: Variant, released: Variant, default: Variant) -> Variant:
 	if Input.is_action_just_pressed(action):

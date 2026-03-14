@@ -33,7 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 36.158)
 [node name="Ramp" type="StaticBody3D" parent="Props" unique_id=520287358]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Props/Ramp" unique_id=1750649237]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 5, -35.355)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 5, -119.40758)
 shape = SubResource("ConvexPolygonShape3D_3rhmh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Props/Ramp/CollisionShape3D" unique_id=1570364520]
