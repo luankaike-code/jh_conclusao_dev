@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dhrvq381488f3"]
 
+[ext_resource type="Script" uid="uid://dle5qxb542nnx" path="res://scenes/worlds/test/test_world.gd" id="1_lqei5"]
 [ext_resource type="Material" uid="uid://bm7ahbfh6uxjy" path="res://assets/materials/test.tres" id="1_wc7aa"]
 [ext_resource type="PackedScene" uid="uid://c11cau3bdgqax" path="res://scenes/raycast_car/raycast_car.tscn" id="2_3rhmh"]
 [ext_resource type="PackedScene" uid="uid://w32erms4bofu" path="res://scenes/cameras/camera_car/camera_car.tscn" id="3_jfhp8"]
@@ -12,7 +13,9 @@ points = PackedVector3Array(-10, -5, -10, -10, 5, -10, 10, -5, -10, -10, -5, 10,
 left_to_right = 0.0
 size = Vector3(20, 10, 20)
 
-[node name="TestWorld" type="Node3D" unique_id=1775684704]
+[node name="TestWorld" type="Node3D" unique_id=319659035]
+script = ExtResource("1_lqei5")
+metadata/_custom_type_script = "uid://cvroydxsfrnnh"
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1898427611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.566, -0.5, 0)

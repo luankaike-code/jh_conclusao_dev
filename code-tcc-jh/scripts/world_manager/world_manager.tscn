@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://7t3hvoouwyow"]
+
+[ext_resource type="Script" uid="uid://rxuuq41o0eu5" path="res://scripts/world_manager/world_manager.gd" id="1_xu71m"]
+
+[node name="WorldManager" type="Node" unique_id=495734482]
+script = ExtResource("1_xu71m")
+metadata/_custom_type_script = "uid://rxuuq41o0eu5"
